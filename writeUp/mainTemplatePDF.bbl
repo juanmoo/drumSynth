@@ -1,0 +1,30 @@
+\begin{thebibliography}{1}
+
+\bibitem{lucas2019understanding}
+J.~Lucas, G.~Tucker, R.~Grosse, and M.~Norouzi.
+\newblock Understanding posterior collapse in generative latent variable
+  models.
+\newblock 2019.
+
+\bibitem{raffel2016extracting}
+C.~Raffel and D.~P. Ellis.
+\newblock Extracting ground-truth information from midi files: A midifesto.
+\newblock In {\em ISMIR}, pages 796--802, 2016.
+
+\bibitem{roberts2018hierarchical}
+A.~Roberts, J.~Engel, C.~Raffel, C.~Hawthorne, and D.~Eck.
+\newblock A hierarchical latent vector model for learning long-term structure
+  in music.
+\newblock {\em arXiv preprint arXiv:1803.05428}, 2018.
+
+\bibitem{rocca_2020}
+J.~Rocca.
+\newblock Understanding variational autoencoders (vaes), Mar 2020.
+
+\bibitem{zaripov1960algorithmic}
+R.~K. Zaripov.
+\newblock An algorithmic description of a process of musical composition.
+\newblock In {\em Doklady Akademii Nauk}, volume 132, pages 1283--1286. Russian
+  Academy of Sciences, 1960.
+
+\end{thebibliography}
