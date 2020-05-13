@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  12 MAY 2020 20:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  12 MAY 2020 22:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -748,69 +748,66 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 18.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 39.
-<./figures/VAE.png, id=74, 1394.20876pt x 725.71124pt>
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 41.
+<./figures/VAE.png, id=70, 1394.20876pt x 725.71124pt>
 File: ./figures/VAE.png Graphic file (type png)
 <use ./figures/VAE.png>
-Package pdftex.def Info: ./figures/VAE.png  used on input line 60.
+Package pdftex.def Info: ./figures/VAE.png  used on input line 49.
 (pdftex.def)             Requested size: 237.13594pt x 123.42464pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [1{/usr/local/texlive/2018basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
-]
-Underfull \hbox (badness 1194) in paragraph at lines 82--83
+ <./figures/VAE.png>]
+Underfull \hbox (badness 1194) in paragraph at lines 71--72
 []\OT1/ptm/m/n/10 which fol-lows from the in-ter-pre-ta-tion that the KL-
  []
 
-<./figures/hierarchical.png, id=98, 883.3pt x 533.995pt>
+<./figures/hierarchical.png, id=94, 883.3pt x 533.995pt>
 File: ./figures/hierarchical.png Graphic file (type png)
 <use ./figures/hierarchical.png>
-Package pdftex.def Info: ./figures/hierarchical.png  used on input line 96.
+Package pdftex.def Info: ./figures/hierarchical.png  used on input line 85.
 (pdftex.def)             Requested size: 237.13594pt x 143.35762pt.
-[2 <./figures/VAE.png> <./figures/hierarchical.png>]
-Overfull \hbox (10.00003pt too wide) detected at line 139
+[2 <./figures/hierarchical.png>]
+Overfull \hbox (10.00003pt too wide) detected at line 128
  
  []
 
 
-Overfull \hbox (10.00003pt too wide) detected at line 139
+Overfull \hbox (10.00003pt too wide) detected at line 128
  
  []
 
 
-Overfull \hbox (10.00003pt too wide) detected at line 140
+Overfull \hbox (10.00003pt too wide) detected at line 129
  
  []
 
 
-Overfull \hbox (10.00003pt too wide) detected at line 140
+Overfull \hbox (10.00003pt too wide) detected at line 129
  
  []
 
-<./figures/actual.png, id=115, 722.7pt x 433.62pt>
+<./figures/actual.png, id=108, 722.7pt x 433.62pt>
 File: ./figures/actual.png Graphic file (type png)
 <use ./figures/actual.png>
-Package pdftex.def Info: ./figures/actual.png  used on input line 150.
+Package pdftex.def Info: ./figures/actual.png  used on input line 139.
 (pdftex.def)             Requested size: 223.58379pt x 134.14954pt.
 
-Overfull \hbox (11.29218pt too wide) in paragraph at lines 148--153
+Overfull \hbox (11.29218pt too wide) in paragraph at lines 137--142
 []$[]$ 
  []
 
-<./figures/predicted.png, id=116, 722.7pt x 433.62pt>
+<./figures/predicted.png, id=109, 722.7pt x 433.62pt>
 File: ./figures/predicted.png Graphic file (type png)
 <use ./figures/predicted.png>
-Package pdftex.def Info: ./figures/predicted.png  used on input line 156.
+Package pdftex.def Info: ./figures/predicted.png  used on input line 145.
 (pdftex.def)             Requested size: 223.58379pt x 134.14954pt.
 
-Overfull \hbox (11.29218pt too wide) in paragraph at lines 154--159
+Overfull \hbox (11.29218pt too wide) in paragraph at lines 143--148
 []$[]$ 
  []
 
@@ -818,49 +815,54 @@ Overfull \hbox (11.29218pt too wide) in paragraph at lines 154--159
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
-Overfull \hbox (10.00003pt too wide) detected at line 174
+Overfull \hbox (10.00003pt too wide) detected at line 163
  
  []
 
 
-Overfull \hbox (10.00003pt too wide) detected at line 174
+Overfull \hbox (10.00003pt too wide) detected at line 163
  
  []
 
 
-Overfull \hbox (10.00003pt too wide) detected at line 174
+Overfull \hbox (10.00003pt too wide) detected at line 163
  
  []
 
 
-Overfull \hbox (10.00003pt too wide) detected at line 174
+Overfull \hbox (10.00003pt too wide) detected at line 163
  
  []
 
 
-Overfull \hbox (10.00003pt too wide) detected at line 175
+Overfull \hbox (10.00003pt too wide) detected at line 164
  
  []
 
 
-Overfull \hbox (10.00003pt too wide) detected at line 175
+Overfull \hbox (10.00003pt too wide) detected at line 164
  
  []
 
 
-Overfull \hbox (10.00003pt too wide) detected at line 175
+Overfull \hbox (10.00003pt too wide) detected at line 164
  
  []
 
 
-Overfull \hbox (10.00003pt too wide) detected at line 175
+Overfull \hbox (10.00003pt too wide) detected at line 164
  
  []
 
-
+<./figures/Comparisons.png, id=118, 530.98375pt x 315.1775pt>
+File: ./figures/Comparisons.png Graphic file (type png)
+<use ./figures/Comparisons.png>
+Package pdftex.def Info: ./figures/Comparisons.png  used on input line 177.
+(pdftex.def)             Requested size: 237.13594pt x 140.76091pt.
+[4 <./figures/actual.png> <./figures/predicted.png> <./figures/Comparisons.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4 <./figures/actual.png> <./figures/predicted.png>] (/Users/juanortiz/Dropbox (MIT)/MITS2020/6.882/drumSynth/writeUp/mainTemplatePDF.bbl
+ (/Users/juanortiz/Dropbox (MIT)/MITS2020/6.882/drumSynth/writeUp/mainTemplatePDF.bbl
 Underfull \hbox (badness 1221) in paragraph at lines 15--19
 \OT1/ptm/m/n/10 ing long-term struc-ture in mu-sic.  \OT1/ptm/m/it/10 arXiv preprint
  []
@@ -872,30 +874,28 @@ Underfull \hbox (badness 1205) in paragraph at lines 21--23
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 194.
- [5
-
-]
+ [5]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 194.
  (/Users/juanortiz/Dropbox (MIT)/MITS2020/6.882/drumSynth/writeUp/mainTemplatePDF.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 194.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 194.
 Package rerunfilecheck Info: File `mainTemplatePDF.out' has not changed.
-(rerunfilecheck)             Checksum: 2EDCEF2567EC2582915DF70BB330DDDF;1115.
+(rerunfilecheck)             Checksum: 8CBB78F121620C4ED2B4E90B029630F1;1070.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 194.
  ) 
 Here is how much of TeX's memory you used:
- 18171 strings out of 494091
- 353923 string characters out of 6163523
- 398578 words of memory out of 5000000
- 21665 multiletter control sequences out of 15000+600000
- 553566 words of font info for 78 fonts, out of 8000000 for 9000
+ 18178 strings out of 494091
+ 354082 string characters out of 6163523
+ 398636 words of memory out of 5000000
+ 21672 multiletter control sequences out of 15000+600000
+ 555060 words of font info for 83 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 42i,14n,42p,10432b,718s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,14n,42p,10432b,716s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018basic/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "/Users/juanortiz/Dropbox (MIT)/MITS2020/6.882/drumSynth/writeUp/mainTemplatePDF.pdf" (5 pages, 452276 bytes).
+Output written on "/Users/juanortiz/Dropbox (MIT)/MITS2020/6.882/drumSynth/writeUp/mainTemplatePDF.pdf" (5 pages, 478462 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
- 151 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
- 157 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 174 PDF objects out of 1000 (max. 8388607)
+ 144 compressed objects within 2 object streams
+ 34 named destinations out of 1000 (max. 500000)
+ 154 words of extra memory for PDF output out of 10000 (max. 10000000)
 
