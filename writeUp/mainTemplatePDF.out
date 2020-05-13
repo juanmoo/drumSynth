@@ -10,9 +10,8 @@
 \BOOKMARK [1][-]{section.4}{Experiments}{}% 10
 \BOOKMARK [2][-]{subsection.4.1}{Data Processing and Training}{section.4}% 11
 \BOOKMARK [2][-]{subsection.4.2}{Reconstruction Quality}{section.4}% 12
-\BOOKMARK [2][-]{subsection.4.3}{Track Generation}{section.4}% 13
-\BOOKMARK [3][-]{subsubsection.4.3.1}{Simple Approach}{subsection.4.3}% 14
-\BOOKMARK [3][-]{subsubsection.4.3.2}{Hierarchical VAE Approach}{subsection.4.3}% 15
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Simple Approach}{subsection.4.2}% 13
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Recurrent Variational Autoencoders}{subsection.4.2}% 14
+\BOOKMARK [2][-]{subsection.4.3}{Track Generation}{section.4}% 15
 \BOOKMARK [2][-]{subsection.4.4}{Listening Tests}{section.4}% 16
-\BOOKMARK [1][-]{section.5}{Related Work}{}% 17
-\BOOKMARK [1][-]{section.6}{Conclusion}{}% 18
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 17

@@ -7,6 +7,7 @@
 \usepackage{enumitem}
 \usepackage{float}
 \usepackage{amsmath}
+\usepackage{subcaption}
 
 \usepackage{booktabs,siunitx}
 
@@ -82,15 +83,13 @@ which follows from the interpretation that the KL-divergence measures the amount
 
 \section{Models}
 \subsection{Simple Approach}
-For our simple approach, we experiment with two different network architectures. The first architecture is composed of a 3 stacked LSTM layers with 32 units each using tanh activation between each layer. A fully connected layer with sigmoid activation function was used for the output. The final configuration for this network was found using a box-search over the number of layers, number of units in each layer, and activation function used in the hidden layers.
-
-For the second architecture, a 1D convolutional layer with 32 filters of size 32 were used followed by a max pooling layer with size 2, and a fully connected layer for the output. Again, these parameters were chosen doing a box-search over the number of filters, size of the filters, and the size of the region considered by the max pooling layer.
+ The first architecture is composed of a 3 stacked LSTM layers with 64 units each using tanh activation between each layer. A fully connected layer with softmax activation was used for the output. The final configuration for this network was found using a box-search over the number of layers and number of units in each layer.
 
 \subsection{Hierarchical Decoder VAE Approach}
 
-One of the prominent problems when using generative latent variable models such as VAE to generate sequences is that of ``posterior collapse''. The problem arises when the variational distribution of latent variables closely matches that of the uninformative prior (Lucas et al., 2019)\cite{lucas2019understanding}. In other words, the output of the sequence learns to output things according to some overall distribution $p(z)$, but fail to utilize the information available. When generating musical tracks, this often manifests as repetitive sequences and the lack of long term structure.
+One of the prominent problems when using generative latent variable models such as VAE to generate sequences is that of the ``posterior collapse''. The problem arises when the variational distribution of latent variables closely matches that of the uninformative prior (Lucas et al., 2019)\cite{lucas2019understanding}. In other words, the output of the sequence learns to generate outputs according to some overall distribution $p(z)$, but fails to utilize other information available. When generating musical tracks, this often manifests as repetitive sequences that lack long term structure.
 
-The architecture in (Roberts et al., 2018) shown in \textbf{Figure ~\ref{fig:hierarchical}} attempts to mitigate this by having all portions of the generated sequence depend directly on the latent code.
+The architecture in (Roberts et al., 2018) shown in \textbf{Figure ~\ref{fig:hierarchical}} attempts to mitigate this by having all portions of the generated sequence depend closely on the latent code.
 
 \begin{figure}[H]
   \center{
@@ -119,48 +118,76 @@ For the experiments, both the conductor and decoder networks are implemented usi
 \subsection{Data Processing and Training}
 All the drum tracks utilized throughout the experiments came from the public Lakh MIDI dataset (Raffel et al., 2019)\cite{raffel2016extracting} which contains a variety of 176,581 unique MIDI files. Using MIDI files as a data source is convenient because they store music as a sequence of messages that specify which instruments are playing at any given time. During processing, each note is quantized into 16 equal regions and message values are averaged to obtain the value of that region. To reduce the complexity of the model, rather than using the 61 different percussion classes specified by the General MIDI standard, instruments were mapped into the 9 canonical classes. At each step, the state of the instruments was then encoded using a one-hot representation with 512 possible values; one for each of the possible combinations of the 9 instruments.
 
-To see the relation in the performance of the different models and the length of the sequences produced, two sequence lengths are considered. The short sequences are composed 2-bar drum patterns and long sequences of 16-bar drum patterns. To extract sequences of the appropriate size, we iterate over the available samples using only the percussion channel with a window of the desired size and output all sequences that match the window size. For the hierarchical approach, subsequences have size 16 and therefore corresponds to a bar in the track.
+To see the relation in the performance of the different models and the length of the sequences produced, two sequence lengths are considered. The short sequences are composed 2-bar drum patterns and long sequences of 16-bar drum patterns. To extract sequences of the appropriate size, we iterate over the available samples using only the percussion channel with a window of the desired size and output all sequences that match the window size. For the hierarchical approach, subsequences have size 16 and therefore correspond to a bar in the track.
 
 Following the specifications on (Roberts et al., 2018), all models are trained with Adam with a learning rate that goes from $10^{-3}$ to $10^{-5}$ with an exponential decay rate of $0.9999$ and batch size of 512.
 
 \subsection{Reconstruction Quality}
-To test the ability of the different models to learn the given musical sequences, we compare their ability to reconstruct input sequences and list them in \textbf{Table \ref{tab:reconstruct}}.
+To test the ability of the different models to learn the given musical sequences, we compare their ability to reconstruct the original input sequences. For each configuration, two training approaches were explored: teacher-forcing and scheduled sampling.
 
+During teacher-forcing, the model is given the ground truth from previous time-steps. Having access to the ground truth helps the model converge faster as it does not have to learn over compounding errors. This however, creates a discrepancy between training and generating sequences where the ground truth is not available. As a middle ground, we also experiment with scheduled sampling where we choose whether to feed in the ground truth or the predicted output of previous steps based on some Bernoulli random variable with probability $p$. For our experiments, we used $p = 0.5$.
 
+\subsubsection{Simple Approach}
 
 \begin{table}[H]
 \setlength{\tabcolsep}{3pt}
 \centering
 \begin{tabular}{@{} l SSSSS @{}} % @{} serves to suppress white space at ends of table
 \toprule
+Sequence & {Teacher-Forcing} & {Sampling} \\
+\midrule
+2-bar Drum & 0.969 & 0.931 \\
+16-bar Drum & 0.634 & 0.459 \\
+\bottomrule
+\end{tabular}
+\caption{\label{tab:reconstruct_simple} Reconstruction Accuracies}
+\end{table}
+For 2-bar sequences (length = 32), reconstructions based on our simple architecture produced great results. For the most part, both learning approaches only differed from the actual inputs on one or two time-steps. Despite this success, this model was not able to reliable reconstruct 16-bar sequences and by the reconstruction accuracies on \textbf{table \ref{tab:reconstruct_simple}}. After carefully examining the types of outputs generated, it is evident that the model regressed to constantly predicting the most frequently occurring note in the input. An example of this phenomenon is shown in \textbf{figure \ref{fig:example-seq}}.
 
+\begin{figure}[H]
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.9 \linewidth]{actual.png}
+    \caption{Input Sequence}
+  \end{subfigure}
+
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.9 \linewidth]{predicted.png}
+    \caption{Predicted Sequence}
+  \end{subfigure}
+  \caption{Example of 16-bar Output Sequence}
+  \label{fig:example-seq}
+\end{figure}
+
+\subsubsection{Recurrent Variational Autoencoders}
+\begin{table}[H]
+\setlength{\tabcolsep}{3pt}
+\centering
+\begin{tabular}{@{} l SSSSS @{}} % @{} serves to suppress white space at ends of table
+\toprule
 Model &  \multicolumn{2}{c @{}}{Teacher-Forcing} & \multicolumn{2}{c @{}}{Sampling} \\ 
 
 \cmidrule(l){2-5}
-    & {Simple} & {Hierarchical} & {Simple} & {Hierarchical} \\
+    & {Flat} & {Hierarchical} & {Flat} & {Hierarchical} \\
 \midrule
-2-bar Drum & 0.982 & 0.963 & 0.834 & 0.924 \\
-16-bar Drum & 0.812 & 0.943 & 0.392 & 0.893 \\
+2-bar Drum & 0.982 & 0.963 & 0.905 & 0.924 \\
+16-bar Drum & 0.852 & 0.943 & 0.621 & 0.893 \\
 \bottomrule
 \end{tabular}
-\caption{\label{tab:reconstruct} Reconstruction Accuracies}
+\caption{\label{tab:reconstruct_vae} Reconstruction Accuracies}
 \end{table}
 
+For the 2-bar sequences, both the flat decoder and hierarchical decoder architectures did quite well and were able to reconstruct the sequences almost perfectly. In most cases, predictions only had one or two discrepancies and were audibly indistinguishable from the real inputs. This was to be expected because the task was basically to recreate a repetitive sequence of length 32 with mostly no drastic changes in structure. However, when analyzing the results of attempting to do the same with the 16-bar sequences, the performance of the models was significantly different. When looking at the accuracy differences obtained using the teacher-forcing and scheduled sampling methods, the flat architecture showed a substantially larger performance drop (23.1\%) where the hierarchical architecture only lost a 5.0\% drop in accuracy. If we consider that longer sequences tend to have more variations on the repetitive structure of the drum pattern, this can be interpreted as evidence of the superior ability of the hierarchical architecture to learn the concept of a long-term structure in the pieces.
+
 \subsection{Track Generation}
-\subsubsection{Simple Approach}
-\subsubsection{Hierarchical VAE Approach}
 
 \subsection{Listening Tests}
-
-\section{Related Work}
 
 \section{Conclusion}
 
 % Page Break before references %
 \pagebreak
-
-
-
 
 \bibliographystyle{abbrv}
 \bibliography{refs}
